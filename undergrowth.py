@@ -38,7 +38,7 @@ ciphertext = cipher.encrypt(pad(plaintext, AES.block_size))
 aes_s = ('AESkey[] = { 0x' + ', 0x'.join(hex(x)[2:] for x in KEY) + ' };')
 payload_s = ('payload[] = { 0x' + ', 0x'.join(hex(x)[2:] for x in ciphertext) + ' };')
 #======================================================================================================
-#ARGParsing
+# ARGParsing
 #======================================================================================================
 if __name__ == '__main__':
 	print("Undergrowth.")
@@ -53,7 +53,7 @@ if __name__ == '__main__':
 		os.makedirs("./projects")
 		print ("[+] Creating [./projects] directory")
 #======================================================================================================
-#Template Builder
+# Template Builder
 #======================================================================================================
 def convertFromTemplate(parameters, templateFile):
 	try:
