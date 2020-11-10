@@ -1,4 +1,3 @@
-
 import sys
 from base64 import b64encode
 from Crypto.Cipher import AES
@@ -41,7 +40,7 @@ payload_s = ('payload[] = { 0x' + ', 0x'.join(hex(x)[2:] for x in ciphertext) + 
 # ARGParsing
 #======================================================================================================
 if __name__ == '__main__':
-	print("Undergrowth.")
+	print("Undergrowth, a simple template using shellcode tool.")
 	print("\n\n")
 	parser = argparse.ArgumentParser(add_help=True, description="Undergrowth Malware PoCs")
 	parser.add_argument("shellcodeFile", help="File name containing the raw shellcode to be encoded/encrypted")
