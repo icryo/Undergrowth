@@ -8,6 +8,6 @@
 ##### MapViewofSection
 ##### APCQueueInject
 
-### Reflective DLL Injection Templates 
+### Reflective DLL Templates 
 ##### SRDI
 
