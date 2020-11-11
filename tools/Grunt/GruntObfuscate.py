@@ -2,6 +2,8 @@ import argparse
 import string
 import random
 
+#adapted from https://operat-or.gitbook.io/
+
 parser = argparse.ArgumentParser(description="Grunt Obfuscator")
 parser.add_argument('infile', metavar='in', type=str, help='stdin grunt.cs')
 parser.add_argument('outfile', metavar='out', type=str, help='name of grunt output')
