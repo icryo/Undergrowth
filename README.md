@@ -1,5 +1,5 @@
 # Undergrowth - Under active development
-![picture alt]( https://ak3.picdn.net/shutterstock/videos/5836952/thumb/1.jpg?i10c=img.resize(height:120))
+![picture alt]( https://ak3.picdn.net/shutterstock/videos/5836952/thumb/1.jpg?i10c=img.resize(height:100))
 ### Undergrowth is a malware POC templating tool. Useful if you're dealing with EDR and you want to try to invoke shellcode it in more evasive ways.
 ##### Undergrowth uses 128-bit AES encryption and a randomly generated IV to encrypt shellcode then decrypt it in memory. Templates may be private or public. 
 ### Supported Injection Templates 
