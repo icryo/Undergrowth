@@ -15,6 +15,7 @@
 ###### APCQueueInject 
 ###### SRDI 
 ###### Phantom DLL Hollowing
-###### Additional Payload Obfuscators - Beacon, Merlin 
 ###### Fiber Shellcode Execution
 ###### ACG Functionality 
+
+###### Additional Payload Obfuscators - Beacon, Merlin 
