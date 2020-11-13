@@ -6,8 +6,6 @@
 ###### CreateRemoteThread 
 ###### MapViewofSection 
 
-### Reflective DLL Templates 
-
 ### Tools
 ###### Grunt Obfuscator
 
