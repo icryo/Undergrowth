@@ -16,6 +16,7 @@
 * Phantom DLL Hollowing
 * Fiber Shellcode Execution
 * ACG Functionality 
+* Usermode dll unhooking 
 
 ###### Additional Payload Obfuscators - Beacon, Merlin 
 
