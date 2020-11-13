@@ -12,6 +12,7 @@
 #### Roadmap 
 * APCQueueInject 
 * SRDI 
+* Loaded DLL Hollowing
 * Phantom DLL Hollowing
 * Fiber Shellcode Execution
 * ACG Functionality 
