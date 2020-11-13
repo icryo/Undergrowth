@@ -17,3 +17,5 @@
 ###### ACG Functionality 
 
 ###### Additional Payload Obfuscators - Beacon, Merlin 
+
+For a better understanding of the 'why' review: https://www.forrest-orr.net/post/masking-malicious-memory-artifacts-part-iii-bypassing-defensive-scanners
