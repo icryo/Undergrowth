@@ -16,4 +16,4 @@
 #### Roadmap 
 ###### Additional Payload Obfuscators - Beacon, Merlin 
 ###### Fiber Shellcode Execution
-###### ACG Functionality - https://www.ired.team/offensive-security/defense-evasion/acg-arbitrary-code-guard-processdynamiccodepolicy
+###### ACG Functionality 
