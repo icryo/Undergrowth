@@ -5,10 +5,11 @@
 ### Supported Injection Templates 
 ###### CreateRemoteThread - Working
 ###### MapViewofSection - Working
-###### APCQueueInject - 90%
+###### APCQueueInject 
 
 ### Reflective DLL Templates 
-###### SRDI - 90%
+###### SRDI 
+###### Phantom DLL Hollowing
 
 ### Tools
 ###### Grunt Obfuscator
