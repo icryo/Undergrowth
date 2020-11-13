@@ -5,15 +5,15 @@
 ### Supported Injection Templates 
 ###### CreateRemoteThread - Working
 ###### MapViewofSection - Working
-###### APCQueueInject - TBD
+###### APCQueueInject - 90%
 
 ### Reflective DLL Templates 
-###### SRDI -TBD
+###### SRDI - 90%
 
 ### Tools
 ###### Grunt Obfuscator
 
 #### Roadmap 
 ###### Additional Payload Obfuscators - Beacon, Merlin 
-###### Simple File Encrypter
+###### Fiber Shellcode Execution
 ###### ACG Functionality - https://www.ired.team/offensive-security/defense-evasion/acg-arbitrary-code-guard-processdynamiccodepolicy
