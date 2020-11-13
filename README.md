@@ -10,11 +10,11 @@
 ###### Grunt Obfuscator
 
 #### Roadmap 
- APCQueueInject 
- SRDI 
- Phantom DLL Hollowing
- Fiber Shellcode Execution
- ACG Functionality 
+* APCQueueInject 
+* SRDI 
+* Phantom DLL Hollowing
+* Fiber Shellcode Execution
+* ACG Functionality 
 
 ###### Additional Payload Obfuscators - Beacon, Merlin 
 
