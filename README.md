@@ -17,6 +17,7 @@
 * Fiber Shellcode Execution
 * ACG Functionality 
 * Dynamically resolved syscalls 
++ Non Emulated API execution support
 
 ###### Additional Payload Obfuscators - Beacon, Merlin 
 
