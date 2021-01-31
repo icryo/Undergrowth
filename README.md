@@ -5,6 +5,7 @@
 ### Supported Injection Templates 
 * CreateRemoteThread 
 * MapViewofSection 
+* UUID
 
 ### Additional Tools
 ###### Grunt Obfuscator
