@@ -1,3 +1,4 @@
+import uuid
 //https://blog.sunggwanchoi.com/eng-uuid-shellcode-execution/
 def convertToUUID(shellcode):
 	# If shellcode is not in multiples of 16, then add some nullbytes at the end
